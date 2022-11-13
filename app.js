@@ -37,7 +37,9 @@ class App {
 
   middlewares() {
     this.app.use(cors(corsOptions));
-    this.app.use(helmet());
+    this.app.use(helmet({
+      crossOriginResourcePolicy: false,
+    }));
     /** urlencoded -> analisa as requests de entrada com cargas úteis codificadas
     *por url e é baseado no analisador de corpo
     */
