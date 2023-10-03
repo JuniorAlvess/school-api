@@ -8,6 +8,7 @@ import './src/database';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import delay from 'express-delay';
 
 import homeRoutes from './src/routes/homeRoutes';
 import userRoutes from './src/routes/userRoutes';
@@ -40,6 +41,7 @@ class App {
     this.app.use(helmet({
       crossOriginResourcePolicy: false,
     }));
+    this.app.use(delay(2000));
     /** urlencoded -> analisa as requests de entrada com cargas úteis codificadas
     *por url e é baseado no analisador de corpo
     */
